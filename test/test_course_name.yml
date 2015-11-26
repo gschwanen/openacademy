@@ -1,0 +1,7 @@
+-
+    Create a course and test that its name was correctly assigned
+-
+    !python {model: openacademy.course}: |
+       course_id = self.pool.get('openacademy.course').create(cr, uid, {'name': 'Algebra', 'description': 'foo foo'})
+       course = self.pool.get('openacademy.course').browse(cr, uid, course_id)
+       assert(course.name == 'Algebra'), ("your course name test fails !")
